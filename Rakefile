@@ -5,11 +5,11 @@ require 'lib/soap/lc/version'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "soap-lc"
+    gem.name = "hubrix-soap-lc"
     gem.summary = %Q{SOAP Lite Client provides support for developing clients interfaces from WSDL files.}
     gem.description = gem.summary
     gem.email = "gregoire.lejeune@free.fr"
-    gem.homepage = "http://github.com/glejeune/soap-lc"
+    gem.homepage = "http://github.com/hubrix/soap-lc"
     gem.authors = ["Grégoire Lejeune"]
     gem.version = SOAP::LC::VERSION
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

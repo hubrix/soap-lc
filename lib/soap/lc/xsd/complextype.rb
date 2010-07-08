@@ -29,9 +29,7 @@ module SOAP
             when "all"
               raise SOAP::LCElementError, "Malformated complexType `#{type.attributes['name']}'" unless self[:type].nil?
               self[:type] = :all
-              ###############################################################################
-              warn "xsd:all in xsd:complexType (global definition) is not yet supported!"
-              ###############################################################################
+              self[:sequence] = SOAP::XSD::All.new( content )
             when "choise"
               raise SOAP::LCElementError, "Malformated complexType `#{type.attributes['name']}'" unless self[:type].nil?
               self[:type] = :choise
@@ -87,9 +85,7 @@ module SOAP
             warn "xsd:group in xsd:complexType (global definition) is not yet supported!"
             ###############################################################################
           when :all
-            ###############################################################################
-            warn "xsd:all in xsd:complexType (global definition) is not yet supported!"
-            ###############################################################################
+            r << self[:all].display( types, args )
           when :choise
             ###############################################################################
             warn "xsd:choise in xsd:complexType (global definition) is not yet supported!"
@@ -119,9 +115,7 @@ module SOAP
             warn "xsd:group in xsd:complexType (global definition) is not yet supported!"
             ###############################################################################
           when :all
-            ###############################################################################
-            warn "xsd:all in xsd:complexType (global definition) is not yet supported!"
-            ###############################################################################
+            r = self[:all].responseToHash( xml, types )
           when :choise
             ###############################################################################
             warn "xsd:choise in xsd:complexType (global definition) is not yet supported!"
